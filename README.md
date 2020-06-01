@@ -130,6 +130,22 @@ rcr      rax,1       ; right rotate with carry
 ```
 rcr is rotate right for the carry flag
 
+## 0x09
+```
+shr      rax,3        ; rax >>= 3
+adc      rax,0        ; rax = rax + 0 + CF
+```
+shr is shifts the bits of the first operand right by the specified number of bits in this case is 3 .
 
+`ADC dest, 0` is just adding the CF
+we initialize	rax = 8
 
+## 0x0a
+```
+add      byte [rdi],1
+.loop:
+inc      rdi
+adc      byte [rdi],0
+loop     .loop
+```
 * I will update this repo when i solve new challenges.
