@@ -148,4 +148,18 @@ inc      rdi
 adc      byte [rdi],0
 loop     .loop
 ```
+it increments the least-significant byte at the memory location pointed by rdi
+## 0x0b
+
+```
+not      rdx
+neg      rax
+sbb      rdx,-1
+```
+```
+rax = 0
+rdx = 5
+rdx = ~rdx + 1
+```
+
 * I will update this repo when i solve new challenges.
