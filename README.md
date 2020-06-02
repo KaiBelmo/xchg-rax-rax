@@ -213,8 +213,7 @@ cmp      rax,rcx
 ```
 implementating this code in c
 ```
-int rax = 1337, rbx = 7331, rcx;
-rcx = rax;
+int rax = 1337, rbx = 7331, rcx = rax;
 rcx = ~(rcx & rbx);
 rax = ~rax | ~rbx;
 printf("rax = %d        |       rbx = %d        |           rcx = %d", rax, rbx, rcx);
