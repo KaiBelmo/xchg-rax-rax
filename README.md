@@ -245,10 +245,10 @@ while(str[i] != '\0'){
 
 ## 0x10
 ```
-push     rax
-push     rcx
-pop      rax
-pop      rcx
+push	 rax		; push the value of rax onto the stack
+push	 rcx		; push the value of rcx onto the stack
+pop	  rax		; load the value on top of the stack into rax
+pop	  rcx		; load the value on top of the stack into rcx
 xor      rax,rcx
 xor      rcx,rax
 xor      rax,rcx
@@ -258,7 +258,29 @@ add      rax,rcx
 neg      rcx
 xchg     rax,rcx
 ```
+implement swap in different ways
 
+## 0x11
+```
+.loop:
+    mov      dl,byte [rsi]
+    xor      dl,byte [rdi]
+    inc      rsi              ; counter for the first buffer
+    inc      rdi              ; counter for the second buffer
+    or       al,dl
+    loop     .loop
+```
+compare two strings
 
+## 0x12
+```
+mov      rcx,rdx
+and      rdx,rax
+or       rax,rcx
+add      rax,rdx
+```
+just addition between rax and rdx
+
+## 0x13
 
 * I will update this repo when i solve new challenges.
