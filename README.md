@@ -213,9 +213,52 @@ cmp      rax,rcx
 ```
 implementating this code in c
 ```
-int rax = 1337, rbx = 7331, rcx = rax;
+int rax = 1337, rbx = 7331, rcx;
+rcx = rax;
 rcx = ~(rcx & rbx);
 rax = ~rax | ~rbx;
 printf("rax = %d        |       rbx = %d        |           rcx = %d", rax, rbx, rcx);
 ```
+## 0x0f
+```
+.loop:
+    xor      byte [rsi],al
+    lodsb
+    loop     .loop
+```
+what lodsb does is:
+```
+mov al,[rsi]
+inc rsi           ; (or dec, according to direction flag)
+```
+simple xor encryption, implementating this code in c
+```
+int i;
+char rax;
+char *str = "blablabla";
+while(str[i] != '\0'){
+		str[i] = str[i] ^ rax;
+		rax = str[i];
+    i++;
+}
+```
+
+## 0x10
+```
+push     rax
+push     rcx
+pop      rax
+pop      rcx
+xor      rax,rcx
+xor      rcx,rax
+xor      rax,rcx
+add      rax,rcx
+sub      rcx,rax
+add      rax,rcx
+neg      rcx
+xchg     rax,rcx
+```
+
+
+
 * I will update this repo when i solve new challenges.
