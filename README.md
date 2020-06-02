@@ -211,5 +211,12 @@ not      rbx
 or       rax,rbx
 cmp      rax,rcx
 ```
-
+implementating this code in c
+```
+int rax = 1337, rbx = 7331, rcx;
+rcx = rax;
+rcx = ~(rcx & rbx);
+rax = ~rax | ~rbx;
+printf("rax = %d        |       rbx = %d        |           rcx = %d", rax, rbx, rcx);
+```
 * I will update this repo when i solve new challenges.
