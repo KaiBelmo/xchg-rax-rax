@@ -161,5 +161,55 @@ rax = 0
 rdx = 5
 rdx = ~rdx + 1
 ```
+## 0x0c
+```
+mov      rcx,rax
+xor      rcx,rbx       ; rcx = rcx ^ rbx
+ror      rcx,0xd       ; rotate rcx right 0xd(13) positions
+ror      rax,0xd
+ror      rbx,0xd
+xor      rax,rbx
+cmp      rax,rcx       ; compare rax and rcx
+```
+In a rotate instruction
+```
+mov eax,0xA //the value in eax is 0000 0000 0000 0000 0000 0000 0000 1010
+ror eax,2 // now eax will be      1000 0000 0000 0000 0000 0000 0000 0010
+```
+implementating this code in c
+```
+int rcx , rax = 123456, rbx = 987654;
+rcx = rax;
+rcx = (rcx ^ rbx) >> 13;                // 001110111
+rax = (rax >> 13) ^ (rbx >> 13);
+printf("rcx = %d      |       rax = %d", rcx, rax);
+```
+## 0x0d
+```
+mov      rdx,rbx
+xor      rbx,rcx
+and      rbx,rax
+and      rdx,rax
+and      rax,rcx
+xor      rax,rdx
+cmp      rax,rbx       ; compare rax and rbx
+```
+implementating this code in c
+```
+int rax = 123, rbx = 456, rcx = 789, rdx = rbx;
+rbx = (rbx ^ rcx) & rax;
+rax = (rax & rcx) ^ (rdx & rax);
+printf("rax = %d        |       rbx = %d", rax, rbx);
+```
+## 0x0e
+```
+mov      rcx,rax
+and      rcx,rbx
+not      rcx
+not      rax
+not      rbx
+or       rax,rbx
+cmp      rax,rcx
+```
 
 * I will update this repo when i solve new challenges.
